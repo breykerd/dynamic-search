@@ -11,7 +11,7 @@ function dynamicSearch ()
 
 //funcion que se ejecutara cuando el servidor responda
 	connection.onreadystatechange = function (){
-		console.log(connection.readyState);
+		console.log(connection);
 
 valores =[1,2,3];
 
@@ -19,9 +19,11 @@ for( var i = 0; i < 4; i++){
 
 if(connection.readyState == valores[i]){
 		console.log('cargando . . . .');
+		var text="loading . . . .";
+		document.getElementById("sample-message").innerHTML=text;
 
 	}else if (connection.readyState == 4) {
-		console.log(connection.responseText);
+		document.getElementById("sample-message").innerHTML=connection.responseText;
 	}
 
 }
@@ -32,7 +34,7 @@ if(connection.readyState == valores[i]){
 //configuracion adicional para envio de informacion via metodo post
 	connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //envio de la variable al servidor
-	connection.send("value="+ param );
+	connection.send("search="+ param );
 
 //mensaje de prueba para verificar la instancia connection
 //console.log(connection);
