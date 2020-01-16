@@ -9,7 +9,10 @@ class busqueda extends connection
 	{
 		$mysqli= new connection();
         $Products=$mysqli->query("SELECT * FROM products");
-        return $arrayProduts=$Products->fetch_assoc();
+        while ($products=$Products->fetch_assoc()) {
+         $arrayProduts[]=$products;
+        }
+        echo json_encode($arrayProduts); 
 	}
 
 

@@ -23,6 +23,8 @@ if(connection.readyState == valores[i]){
 		document.getElementById("sample-message").innerHTML=text;
 
 	}else if (connection.readyState == 4) {
+		Text2 = connection.responseText;
+		text2 = JSON.parse(Text2);
 		document.getElementById("sample-message").innerHTML=connection.responseText;
 	}
 
@@ -43,4 +45,3 @@ if(connection.readyState == valores[i]){
 
 
 //ejecucion de la funcion
-dynamicSearch();
